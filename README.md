@@ -27,3 +27,5 @@ The layout is based on the US one, so it has easy access to keys like: `\` and `
  - `€` is done with `altgr + 4`
 
  the second part of the layout may seems a little random at first, until you realize that is just one letter below in the qwerty layout, so for example `z` is below `a`
+
+<img title="a title" alt="Alt text" src="layout.jpg"> 

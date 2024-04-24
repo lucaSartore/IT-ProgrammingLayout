@@ -24,5 +24,6 @@ The layout is based on the US one, so it has easy access to keys like: `\` and `
  - `Ì` is done with `altgr + shift + k`
  - `Ò` is done with `altgr + shift + l`
  - `Ù` is done with `altgr + shift + i`
+ - `€` is done with `altgr + 4`
 
  the second part of the layout may seems a little random at first, until you realize that is just one letter below in the qwerty layout, so for example `z` is below `a`

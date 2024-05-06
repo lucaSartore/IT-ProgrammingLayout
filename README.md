@@ -2,7 +2,7 @@
 
 This repository contains a custom layout made for italian programmers
 
-The layout is based on the US one, so it has easy access to keys like: `\` and `~`, but it has some custom key bindings for the italian accented letters... In particular:
+The layout is based on the US one, so it has easy access to keys like: \` and `~`, but it has some custom key bindings for the italian accented letters... In particular:
 
  - `á` is done with `altgr + a`
  - `é` is done with `altgr + e`

@@ -1,3 +1,4 @@
+This is the old version of the IT-ProgrammingLayout, the newer version has some more features as well as been compatible with all major operating systems.
 # IT-ProgrammingLayout
 
 This repository contains a custom layout made for italian programmers

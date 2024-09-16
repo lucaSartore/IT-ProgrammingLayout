@@ -1,0 +1,96 @@
+#|
+reminder: on windows this program won't work in elevated permissions shells...
+to fix this check out: https://github.com/jtroo/kanata/tree/main/EnableUIAccess
+
+the keyboard dose not start automaticly, therefore you should start it as a service:
+https://github.com/jtroo/kanata/discussions/193#discussioncomment-5276656
+|#
+
+
+(defvar 
+  tap-timeout   200
+  hold-timeout  200
+  tt $tap-timeout
+  ht $hold-timeout
+)
+
+(defcfg
+    ;; need to stay enable to avoid problems https://github.com/jtroo/kanata/blob/v1.6.1/docs/config.adoc#process-unmapped-keys
+    process-unmapped-keys yes
+  
+    ;; without this the altgr won't release the ctrl button
+    windows-altgr add-lctl-release
+    ;; sequences (aka vim like commands) timeout
+    sequence-timeout 2000
+)
+
+
+;; source layer (basic us layout)
+(defsrc
+  esc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    
+  caps a    s    d    f    g    h    j    k    l    ;    '    \   ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+
+;; the base layer (this is what the source will be remaped to)
+(deflayermap (base)
+  esc caps
+  caps @escctrl
+  f @f
+  rmet rctl
+  rctl rmet
+  ralt @altGr
+)
+
+;; access arrow key more easily by pressing f
+(deflayermap (arrows)
+    h left
+    j down
+    k up
+    l right
+)
+(defalias f (tap-hold $tt $ht f (layer-while-held arrows)))
+
+;; tap hold config to use caps as both esc and ctrl
+(defalias escctrl (tap-hold $tt $ht esc lctl))
+
+;;;;;;;;;;;;;;;; special key for Italian language ;;;;;;;;;;;;;;;;;;;;;;;;
+
+(deflayermap ( altGr )
+    a (unicode à)
+    e (unicode è)
+    d (unicode é)
+    i (unicode ì)
+    o (unicode ò)
+    u (unicode ù)
+    lshift @shiftAltGr
+    rshift @shiftAltGr
+)
+
+(deflayermap (shiftAltGr)
+    a (unicode À)
+    e (unicode È)
+    d (unicode É)
+    i (unicode Ì)
+    o (unicode Ò)
+    u (unicode Ù)
+)
+(defalias
+	altGr (layer-toggle altGr)
+)
+
+(defalias
+	shiftAltGr (layer-toggle shiftAltGr)
+)
+
+;; remidner for the future: here is an example on how to use the leader key for 
+;; (defseq git-status (g s t))
+;; (defvirtualkeys git-status (macro g i t spc s t a t u s))
+;; you will also need to define the sldr (sequence leader) key, for example here it is defined as left ctrl
+;; lctl sldr ;; left control is now the "leader" key, as i can now use the caps key to as left ctrl
+
+

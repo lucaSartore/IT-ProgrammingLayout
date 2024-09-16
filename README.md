@@ -22,7 +22,12 @@ Note that the program dose not start automatically, and it will be necessary to 
 
 ### Windows
 On windows it is necessary to sign the program in order to use inside programs that have elevated permissions (like an administrator command shell)
-Instructions on how to sign the program can be found [here](https://github.com/jtroo/kanata/tree/main/enableuiaccess)
+Instructions on how to sign the program can be found [here](https://github.com/jtroo/kanata/tree/main/EnableUIAccess)
+
+The script require `autoHotKey` to be installed
+```
+choco install autohotkey.portable --version=2.0.4
+```
 
 To start automatically the program you insert a shortcut to `run.bat` inside `%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup`. Like shown [here](https://github.com/jtroo/kanata/discussions/193#discussioncomment-5276656)
 

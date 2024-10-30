@@ -72,7 +72,7 @@ https://github.com/jtroo/kanata/discussions/193#discussioncomment-5276656
     o f12
     ;; custom keys
     ;; re-run
-    c f6
+    r f6
     ;; evaluate
     e f4
 )
@@ -116,4 +116,5 @@ https://github.com/jtroo/kanata/discussions/193#discussioncomment-5276656
 ;; (defvirtualkeys git-status (macro g i t spc s t a t u s))
 ;; you will also need to define the sldr (sequence leader) key, for example here it is defined as left ctrl
 ;; lctl sldr ;; left control is now the "leader" key, as i can now use the caps key to as left ctrl
+
 

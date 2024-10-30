@@ -32,7 +32,7 @@ https://github.com/jtroo/kanata/discussions/193#discussioncomment-5276656
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    
   caps a    s    d    f    g    h    j    k    l    ;    '    \   ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            ralt rmet rctl
+  lctl lmet lalt           spc            ralt rctl rmet
 )
 
 
@@ -41,8 +41,9 @@ https://github.com/jtroo/kanata/discussions/193#discussioncomment-5276656
   esc caps
   caps @escctrl
   f @f
-  rmet rctl
-  rctl rmet
+  ; @;
+;;  rmet rctl
+;;  rctl rmet
   ralt @altGr
 )
 
@@ -54,6 +55,28 @@ https://github.com/jtroo/kanata/discussions/193#discussioncomment-5276656
     l right
 )
 (defalias f (tap-hold $tt $ht f (layer-while-held arrows)))
+
+
+;; debugging keybinding
+(deflayermap (debug)
+    ;; default keys
+    ;; continue
+    c f5
+    ;; brakepoint
+    b f9
+    ;; step over
+    s f10
+    ;; step into
+    i f11
+    ;; step out
+    o f12
+    ;; custom keys
+    ;; re-run
+    c f6
+    ;; evaluate
+    e f4
+)
+(defalias ; (tap-hold $tt $ht ; (layer-while-held debug)))
 
 ;; tap hold config to use caps as both esc and ctrl
 (defalias escctrl (tap-hold $tt $ht esc lctl))
@@ -67,6 +90,7 @@ https://github.com/jtroo/kanata/discussions/193#discussioncomment-5276656
     i (unicode ì)
     o (unicode ò)
     u (unicode ù)
+    4 (unicode €)
     lshift @shiftAltGr
     rshift @shiftAltGr
 )
@@ -92,5 +116,4 @@ https://github.com/jtroo/kanata/discussions/193#discussioncomment-5276656
 ;; (defvirtualkeys git-status (macro g i t spc s t a t u s))
 ;; you will also need to define the sldr (sequence leader) key, for example here it is defined as left ctrl
 ;; lctl sldr ;; left control is now the "leader" key, as i can now use the caps key to as left ctrl
-
 

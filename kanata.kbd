@@ -139,6 +139,10 @@ https://github.com/jtroo/kanata/discussions/193#discussioncomment-5276656
     x (unicode ])
     q (unicode {)
     w (unicode })
+    ;; or
+    o (unicode |)
+    ;; back slash
+    b (unicode \)
 )
 (defalias j (tap-hold $tt $ht j (layer-while-held SpecialSimbols)))
 

@@ -44,7 +44,7 @@ https://github.com/jtroo/kanata/discussions/193#discussioncomment-5276656
   esc caps
   caps @escctrl
   f @f
-  j @j
+  l @l
   ; @;
   rmet rctl
   rctl rmet
@@ -140,11 +140,11 @@ https://github.com/jtroo/kanata/discussions/193#discussioncomment-5276656
     q (unicode {)
     w (unicode })
     ;; or
-    o (unicode |)
+    v (unicode |)
     ;; back slash
     b (unicode \)
 )
-(defalias j (tap-hold $tt $ht j (layer-while-held SpecialSimbols)))
+(defalias l (tap-hold $tt $ht l (layer-while-held SpecialSimbols)))
 
 
 ;; remidner for the future: here is an example on how to use the leader key for 

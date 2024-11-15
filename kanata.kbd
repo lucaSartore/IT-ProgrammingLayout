@@ -6,7 +6,9 @@ the keyboard dose not start automaticly, therefore you should start it as a serv
 https://github.com/jtroo/kanata/discussions/193#discussioncomment-5276656
 |#
 
-
+;; ==============================================================================================
+;; ============================CONFIGURATION=====================================================
+;; ==============================================================================================
 (defvar 
   tap-timeout   200
   hold-timeout  200
@@ -20,11 +22,12 @@ https://github.com/jtroo/kanata/discussions/193#discussioncomment-5276656
   
     ;; without this the altgr won't release the ctrl button
     windows-altgr add-lctl-release
-    ;; sequences (aka vim like commands) timeout
-    sequence-timeout 2000
 )
 
 
+;; ==============================================================================================
+;; ============================BASIC LAYOUT======================================================
+;; ==============================================================================================
 ;; source layer (basic us layout)
 (defsrc
   esc
@@ -41,13 +44,19 @@ https://github.com/jtroo/kanata/discussions/193#discussioncomment-5276656
   esc caps
   caps @escctrl
   f @f
+  j @j
   ; @;
-;;  rmet rctl
-;;  rctl rmet
+  rmet rctl
+  rctl rmet
   ralt @altGr
 )
 
-;; access arrow key more easily by pressing f
+;; tap hold config to use caps as both esc and ctrl
+(defalias escctrl (tap-hold $tt $ht esc lctl))
+
+;; ==============================================================================================
+;; ============================ARROW REMAPPING===================================================
+;; ==============================================================================================
 (deflayermap (arrows)
     h left
     j down
@@ -57,7 +66,9 @@ https://github.com/jtroo/kanata/discussions/193#discussioncomment-5276656
 (defalias f (tap-hold $tt $ht f (layer-while-held arrows)))
 
 
-;; debugging keybinding
+;; ==============================================================================================
+;; ============================DEBUG REMAPPING===================================================
+;; ==============================================================================================
 (deflayermap (debug)
     ;; default keys
     ;; continue
@@ -78,10 +89,10 @@ https://github.com/jtroo/kanata/discussions/193#discussioncomment-5276656
 )
 (defalias ; (tap-hold $tt $ht ; (layer-while-held debug)))
 
-;; tap hold config to use caps as both esc and ctrl
-(defalias escctrl (tap-hold $tt $ht esc lctl))
 
-;;;;;;;;;;;;;;;; special key for Italian language ;;;;;;;;;;;;;;;;;;;;;;;;
+;; ==============================================================================================
+;; ============================ITALIAN LANGUAGE REMAPPING========================================
+;; ==============================================================================================
 
 (deflayermap ( altGr )
     a (unicode à)
@@ -94,6 +105,9 @@ https://github.com/jtroo/kanata/discussions/193#discussioncomment-5276656
     lshift @shiftAltGr
     rshift @shiftAltGr
 )
+(defalias
+	altGr (layer-toggle altGr)
+)
 
 (deflayermap (shiftAltGr)
     a (unicode À)
@@ -104,17 +118,33 @@ https://github.com/jtroo/kanata/discussions/193#discussioncomment-5276656
     u (unicode Ù)
 )
 (defalias
-	altGr (layer-toggle altGr)
-)
-
-(defalias
 	shiftAltGr (layer-toggle shiftAltGr)
 )
+
+;; ==============================================================================================
+;; ============================SPECIAL SIMPOLS REMAPPING=========================================
+;; ==============================================================================================
+;; key that are slow to type because too far from the home row are remapped here
+(deflayermap ( SpecialSimbols )
+    ;; equal
+    e (unicode =)
+    ;; add
+    a (unicode +)
+    ;; subtract
+    s (unicode -)
+    ;; undescore
+    spc (unicode _)
+    ;; parenthesis
+    z (unicode [)
+    x (unicode ])
+    q (unicode {)
+    w (unicode })
+)
+(defalias j (tap-hold $tt $ht j (layer-while-held SpecialSimbols)))
+
 
 ;; remidner for the future: here is an example on how to use the leader key for 
 ;; (defseq git-status (g s t))
 ;; (defvirtualkeys git-status (macro g i t spc s t a t u s))
 ;; you will also need to define the sldr (sequence leader) key, for example here it is defined as left ctrl
 ;; lctl sldr ;; left control is now the "leader" key, as i can now use the caps key to as left ctrl
-
-

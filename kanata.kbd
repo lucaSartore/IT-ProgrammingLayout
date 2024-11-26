@@ -44,7 +44,6 @@ https://github.com/jtroo/kanata/discussions/193#discussioncomment-5276656
   esc caps
   caps @escctrl
   f @f
-  l @l
   ; @;
   rmet rctl
   rctl rmet
@@ -120,31 +119,6 @@ https://github.com/jtroo/kanata/discussions/193#discussioncomment-5276656
 (defalias
 	shiftAltGr (layer-toggle shiftAltGr)
 )
-
-;; ==============================================================================================
-;; ============================SPECIAL SIMPOLS REMAPPING=========================================
-;; ==============================================================================================
-;; key that are slow to type because too far from the home row are remapped here
-(deflayermap ( SpecialSimbols )
-    ;; equal
-    e (unicode =)
-    ;; add
-    a (unicode +)
-    ;; subtract
-    s (unicode -)
-    ;; undescore
-    spc (unicode _)
-    ;; parenthesis
-    z (unicode [)
-    x (unicode ])
-    q (unicode {)
-    w (unicode })
-    ;; or
-    v (unicode |)
-    ;; back slash
-    b (unicode \)
-)
-(defalias l (tap-hold $tt $ht l (layer-while-held SpecialSimbols)))
 
 
 ;; remidner for the future: here is an example on how to use the leader key for 

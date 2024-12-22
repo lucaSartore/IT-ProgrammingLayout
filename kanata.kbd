@@ -7,8 +7,7 @@ https://github.com/jtroo/kanata/discussions/193#discussioncomment-5276656
 |#
 
 ;; ==============================================================================================
-;; ============================CONFIGURATION=====================================================
-;; ==============================================================================================
+;; ============================CONFIGURATION===================================================== ;; ==============================================================================================
 (defvar 
   tap-timeout   200
   hold-timeout  200
@@ -45,13 +44,16 @@ https://github.com/jtroo/kanata/discussions/193#discussioncomment-5276656
   caps @escctrl
   f @f
   ; @;
-  rmet rctl
-  rctl rmet
   ralt @altGr
+  / @new_rctl
 )
 
 ;; tap hold config to use caps as both esc and ctrl
 (defalias escctrl (tap-hold $tt $ht esc lctl))
+
+;; tap hold confit to use / as right control as well
+(defalias new_rctl (tap-hold $tt $ht / rctl))
+
 
 ;; ==============================================================================================
 ;; ============================ARROW REMAPPING===================================================
